@@ -4,26 +4,14 @@ title: About
 ---
 
 <p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
+  Welcome to my blog, this blog (like most of my projects) is a work in progress! Enjoy!
 </p>
 
-In the novel, *The Strange Case of Dr. Jeykll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+Check out some of my projects in various states of progress:
 
-There are currently two themes built on Poole:
+- [Spotify Listening Tracker](music.rsbd.us): A spotify tracking site for more details about your listening habits. I'd like to expand this into a recommendation engine at some point.
+- [Cross Country Rankings Site](rankings.rsbd.us): Site for ranking cross country performances. Very much a work in progress
 
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
-
-Learn more and contribute on [GitHub](https://github.com/poole).
-
-## Setup
-
-Some fun facts about the setup of this project include:
-
-* Built for [Jekyll](https://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Atom](https://atom.io)
-
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
+Have questions or suggestions? Feel free to reach out via [Twitter](https://twitter.com/SeanKane942).
 
 Thanks for reading!
