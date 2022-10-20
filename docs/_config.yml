@@ -1,22 +1,22 @@
 # Setup
-title:               RSBD
-tagline:             'A Jekyll theme'
-description:         'A reserved <a href="https://jekyllrb.com" target="_blank">Jekyll</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:                 https://rsbd.us
-baseurl:             ''
-paginate:            5
-permalink:           pretty
+title: RSBD
+tagline: "A blog"
+description: 'A reserved <a href="https://jekyllrb.com" target="_blank">Jekyll</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
+url: https://rsbd.us
+baseurl: ""
+paginate: 5
+permalink: pretty
 
 # About/contact
 author:
-  name:              Sean Kane
-  url:               https://twitter.com/seankane942
-  email:             spkane31@gmail.com
+  name: Sean Kane
+  url: https://twitter.com/seankane942
+  email: spkane31@gmail.com
 
 # Gems
 plugins:
   - jekyll-paginate
 
 # Custom vars
-version:             1.1.0
+version: 1.1.0
 google_analytics_id: #UA-XXXX-Y
