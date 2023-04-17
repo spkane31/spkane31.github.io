@@ -53,6 +53,8 @@ This gives 10 differences in a season.
 | Big Sky | NCAA CC Champs | -31 seconds |
 | Mountain Region | NCAA CC Champs | -34 seconds |
 
+<!-- TODO seankane: finish this portion -->
+
 ## ELO System
 
 [ELO](https://en.wikipedia.org/wiki/Elo_rating_system#) is a rating system for zero-sum games, most famously it's used by chess. In a cross-country race there are `n * (n-1) / 2` "games", for a race with 100 runners, there are 4950 games to calculate. The zero-sum portion of ELO can be adapted to for use in a cross country race. Here is a rough summary of how the algorithm is adapted:
@@ -61,26 +63,47 @@ This gives 10 differences in a season.
 1. Calculate scoring function for each position
 1. Update rankings
 
+### Expected Scores
+
+Standard ELO calculates an expected score for each competitor:
+
+$$ E_a = {1 \over 1 + 10 ^ {R_a - R_b/ 400}} $$
+$$ R_a \text{ is the ranking value of competitor A}$$
+$$ R_b \text{ is the ranking value of competitor B}$$
+
+Group ELO calculates the expected score for each competitor:
+
+$$ E_a = \sum_{i=1}^{n} {1 \over 1 + 10 ^ {(R_i - R_a / 10)} } $$
+$$ \text{where } n \text{ is the number of competitors.} $$
+$$ \text{where } R_a \text{ is the ELO rating of competitor A.} $$
+$$ \text{where } R_i \text{ is the ELO rating of competitor } i. $$
+
+### Scoring Functions
+
 Scoring Function for standard ELO
 
-<!-- TODO seankane: Update to LaTeX -->
-```sh
+$$
+S_a =
+    \begin{cases}
+        1 & \text{if player wins}\\
+        0 & \text{if player loses}\\
+    \end{cases}
+$$
 
-S_a = 1 if competitor wins
-S_a = 0 if competitor loses
+Linear Scoring Function for group ELO
 
-```
+$$ S_a = {N - a \over N (N - 1) / 2} $$
 
-Scoring Function for group ELO
+### Calculating New Rankings
 
-<!-- TODO seankane: Update to LaTeX -->
-```sh
+Update ELO Ratings after a competition:
 
-S_a = (N - a)/ (N * (N - 1) / 2) for each position
+$$ R'_a = R_a + K(N-1)(S_a - E_a) $$
 
-```
+where $$ S_a - E_a $$
 
+is the difference between actual performance and expected performance. If a competitor performs better than expected, their respective ELO rating will rise, and vice versa if a competitor performs worse than their expected rating. For each competition, new ELO ratings are calculated for each competitor, with updates used in subsequent races.
 
 ### Caveats
 
-There are caveats with the traditional ELO system (which can be found on the Wikipedia page), but with the group system applied to cross country there are other issues. Namely, number of competitions appears again as an issue, with fewer races there's less time for the ELO rating to stabilize.
+There are caveats with the traditional ELO system (which can be found on the Wikipedia page), but with the group system applied to cross country there are other issues. Most importantly, number of competitions, with fewer races there's less data points for ELO ratings to stabilize.
