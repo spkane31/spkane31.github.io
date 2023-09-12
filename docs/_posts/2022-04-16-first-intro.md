@@ -53,7 +53,19 @@ This gives 10 differences in a season.
 | Big Sky | NCAA CC Champs | -31 seconds |
 | Mountain Region | NCAA CC Champs | -34 seconds |
 
-<!-- TODO seankane: finish this portion -->
+Note: if two races are run on the same course, that difference is not used for analysis. Those performances have interesting insights into an athletes progressions in a season, but are disregarded for now.
+
+I compute the differences for every athlete who races more than once in a season. For the 2022 cross country season, I collected results from 44 meets, which yields 8,643 differences (4,101 for men and 4,542 for women). For both mens and womens results, I use a data structure called a [weighted graph](https://en.wikipedia.org/wiki/Bidirected_graph) to model a full seasons worth of difference. I can then examine the differences between courses, for example here's a sample of results:
+
+| Course A | Course B | Average (as a %) | Standard Deviation | Count |
+|-|-|-|-|-|
+| Thomas Zimmer Cross Country Course, Madison (6K) | Greiner Family OSU Cross Country Course, Stillwater (6K) | -0.4 | 1.8 | 164 |
+| Thomas Zimmer Cross Country Course, Madison (8K) | Greiner Family OSU Cross Country Course, Stillwater (10K) | 1.2 | 2.0 | 139 |
+| Dale Watts '71 XC Course, College Station (8K) | Watts Cross Country Course Bryan-College Station (10K) | 4.8 | 2.6 | 133 |
+| Dale Watts '71 XC Course, College Station (6K) | Watts Cross Country Course Bryan, College Station (6K) | -1.2 | 2.1 | 132 |
+| Greiner Family OSU Cross Country Course, Stillwater (6K) | Thomas Zimmer Cross Country Course, Madison (6K) | -1.4 | 2.0 |  98 |
+
+On average, a runner runs 0.4 % faster on the Stillwater course than the Thomas Zimmer course. If an athlete runs 21:00 for 6K at Thomas Zimmer, they can expect to run about 5 seconds faster at Stillwater, on average. 
 
 ## ELO System
 
