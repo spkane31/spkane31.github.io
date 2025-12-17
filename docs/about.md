@@ -9,8 +9,8 @@ title: About
 
 Check out some of my projects in various states of progress:
 
-- [Spotify Listening Tracker](https://music.rsbd.us): A spotify tracking site for more details about your listening habits. I'd like to expand this into a recommendation engine at some point.
-- [Cross Country Rankings Site](https://rankings.rsbd.us): Site for ranking cross country performances. Very much a work in progress
+- [Cross Country Rankings Site (deprecated)](https://github.com/spkane31/cross-country-rankings): Site for ranking cross country performances. No longer working on this.
+- [Spotify Listening Tracker (deprecated)](https://github.com/spkane31/spotify-tracker): A spotify tracking site for more details about your listening habits. I'd like to expand this into a recommendation engine at some point. No longer working on this
 
 Have questions or suggestions? Feel free to reach out via [Twitter](https://twitter.com/SeanKane942).
 
