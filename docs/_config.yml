@@ -1,22 +1,186 @@
-# Setup
+# The Site Configuration
+
+# Import the theme
+theme: jekyll-theme-chirpy
+
+# The language of the webpage
+lang: en
+
+# Change to your timezone › https://zones.arilyn.cc
+timezone: America/New_York
+
+# jekyll-seo-tag settings
 title: RSBD
-tagline: "A blog"
-description: 'A reserved <a href="https://jekyllrb.com" target="_blank">Jekyll</a> theme that places the utmost gravity on content with a hidden drawer. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url: https://rsbd.us
-baseurl: ""
-paginate: 5
-permalink: pretty
 
-# About/contact
-author:
+tagline: My personal blog which largely includes a personal knowledge database for self studying machine learning topics
+
+description: >-
+  Self-study notes and insights from working through machine learning and applied mathematics textbooks and resources.
+
+# Fill in the protocol & hostname for your site.
+url: "https://rsbd.us"
+
+github:
+  username: spkane31
+
+twitter:
+  username: seankane942
+
+social:
   name: Sean Kane
-  url: https://twitter.com/seankane942
   email: spkane31@gmail.com
+  links:
+    - https://twitter.com/seankane942
+    - https://github.com/spkane31
 
-# Gems
-plugins:
-  - jekyll-paginate
+# Site Verification Settings
+webmaster_verifications:
+  google:
+  bing:
+  alexa:
+  yandex:
+  baidu:
+  facebook:
 
-# Custom vars
-version: 1.1.0
-google_analytics_id: #UA-XXXX-Y
+# Web Analytics Settings
+analytics:
+  google:
+    id:
+  goatcounter:
+    id:
+  umami:
+    id:
+    domain:
+  matomo:
+    id:
+    domain:
+  cloudflare:
+    id:
+  fathom:
+    id:
+
+# Page views settings
+pageviews:
+  provider:
+
+# Prefer color scheme setting
+theme_mode: # [light | dark]
+
+# The CDN endpoint for media resources
+cdn:
+
+# the avatar on sidebar, support local or CORS resources
+avatar:
+
+# The URL of the site-wide social preview image used in SEO
+social_preview_image:
+
+# boolean type, the global switch for TOC in posts.
+toc: true
+
+comments:
+  provider: # [disqus | utterances | giscus]
+  disqus:
+    shortname:
+  utterances:
+    repo:
+    issue_term:
+  giscus:
+    repo:
+    repo_id:
+    category:
+    category_id:
+    mapping:
+    strict:
+    input_position:
+    lang:
+    reactions_enabled:
+
+# Self-hosted static assets
+assets:
+  self_host:
+    enabled:
+    env:
+
+pwa:
+  enabled: true
+  cache:
+    enabled: true
+    deny_paths:
+
+paginate: 10
+
+# The base URL of your site
+baseurl: ""
+
+# ------------ The following options are not recommended to be modified ------------------
+
+kramdown:
+  footnote_backlink: "&#8617;&#xfe0e;"
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+collections:
+  tabs:
+    output: true
+    sort_by: order
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: false
+      toc: true
+      permalink: /posts/:title/
+  - scope:
+      path: _drafts
+    values:
+      comments: false
+  - scope:
+      path: ""
+      type: tabs
+    values:
+      layout: page
+      permalink: /:title/
+
+sass:
+  style: compressed
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  blanklines: false
+  ignore:
+    envs: [development]
+
+exclude:
+  - "*.gem"
+  - "*.gemspec"
+  - docs
+  - tools
+  - README.md
+  - LICENSE
+  - LICENSE.md
+  - purgecss.js
+  - "*.config.js"
+  - "package*.json"
+  - _config.yml.chirpy
+
+jekyll-archives:
+  enabled: [categories, tags]
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    tag: /tags/:name/
+    category: /categories/:name/
