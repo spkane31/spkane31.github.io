@@ -97,11 +97,17 @@ In $\mathbb{R}^{n \times n}$, the _identity matrix_ has only 1s in the diagonals
 
 **Properties of Matrices:**
 
-* _Associativity_: $(AB)C = A(BC)$, ie the order of multiplication does not matter as long as multiplication can be done based on the size of the respective matrices
+* _Associativity_: the order of multiplication does not matter as long as multiplication can be done based on the size of the respective matrices
 
-* _Distributivity_: $(A + B)C = AC + BC$
+$$
+(AB)C = A(BC)
+$$
 
-* _Multiplication w/ Identity_: $\forall A \in \mathbb{R}^{m \times n}: I_mA = AI_n = A$, ie multiplying by the identity matrix does not change the matrix
+* _Distributivity_: $$(A + B)C = AC + BC$$
+
+* _Multiplication w/ Identity_: multiplying by the identity matrix does not change the matrix
+
+ $$\forall A \in \mathbb{R}^{m \times n}: I_mA = AI_n = A$$
 
 
 ### Vector Space
