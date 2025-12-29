@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Math for ML CH3: Linear Algebra"
+title: "Math for ML CH2: Linear Algebra"
 date: 2025-12-27 17:52:39 -0500
 categories: [Linear Algebra, Vectors, Matrices]
 tags: [math-for-machine-learning]
