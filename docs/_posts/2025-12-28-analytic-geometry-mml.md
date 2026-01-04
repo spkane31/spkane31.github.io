@@ -83,9 +83,76 @@ $$
 
 computes distance from the origin. All vectors $x \in \mathbb{R}^2 with ||x||_2 = 1$ is the unit circle.
 
-### Concept 2: Another Important Idea
+### Inner Products
 
-Continue with other key concepts...
+Inner products all for intuitive geometrical concepts like the length of a vector, angle between two vectors, or distance between two vectors. Later we touch on orthogonal vectors
+
+#### Dot Product
+
+Dot product is the product of two matrices elementwise
+
+$$
+x^Ty = \sum_{i=1}^{n}x_iy_i
+$$
+
+Example:
+
+$$
+\begin{bmatrix} 2 & 3  \end{bmatrix}^T \begin{bmatrix} 4 \\ 5 \end{bmatrix}
+$$
+$$
+\begin{bmatrix} 8 \\ 15 \end{bmatrix}
+$$
+
+#### General Inner Products
+
+_Bilinear mapping_ $\Omega$ is a mapping with two arguments that is linear in each argument.
+
+linear in the first argument:
+$$
+\Omega(\lambda x + \psi y, z) = \lambda \Omega{x,z} + \psi \Omega(y,z)
+$$
+linear in the second:
+$$
+\Omega(x, \lambda y + \psi z) = \lambda \Omega{x,zy} + \psi \Omega(y,z)
+$$
+
+For $V$ a vector space and $\Omega : V \times V \mapsto \mathbb{R}$ ($\Omega$ maps V to a single value)
+
+* _Symmetric_ if the order of the arguments does not matter, $\Omega(x,y) = \Omega(y,x)$ for all $x, y \in V$
+
+* _Positive Definite_ if for all x in the vector space, $\Omega(x,x) > 0$ except for the 0 case, $\Omega(0,0) = 0$.
+
+* A **_positive definite, symmetric_** bilinear mapping is an _inner product_ of $V$. Typically written as $\langle x,y \rangle$
+* The pair $(V, \langle \cdot , \cdot \rangle)$ in _inner product space_ or (real) _vector space with inner product_.
+
+Positive definitess of the inner products implies:
+
+$$
+\forall x \in V \backslash \{0\}: x^TAx > 0
+$$
+
+* A symmetric matrix $A \in \mathbb{R}^{n \times n}$ is symmetric, positive definite if the above holds
+* symmetric, positive semidefinite if only $\ge 0$ holds
+
+**Theorem**: For a real-valued, finite-dimensional vector space V and an ordered basis B of V, it holds that $\langle \cdot, \cdot \rangle : V \times V \mapsto \mathbb{R}$ is an inner product if and only if there exists a symmetric, positive definite matrix $A \in \mathbb{R}^{n \times n}$ with
+
+$$
+\langle x , y \rangle = \hat{x}^TA\hat{y}.
+$$
+
+With the following properties:
+
+* The null space (kernel) of $A$ consists only of $0$ because $x^TAx > 0$ for all $x \ne 0$. THis implies that $Ax \ne 0$ if $x \ne 0$
+* The diagonal elements $a_{ii}$ are positive because $a_{ii} = e_i^TAe_i > 0$, where $e_i$ is the _i_-th vector of the standard basis in $\mathbb{R}^n$
+
+### Lengths and Distances
+### Angles and Orthogonality
+### Orthonormal Basis
+### Orthonormal Complement
+### Inner Product of Functions
+### Orthogonal Projections
+### Rotations
 
 ---
 
