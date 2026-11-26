@@ -3,16 +3,17 @@ layout: null
 ---
 <!doctype html>
 <html lang="en">
+{% assign asset_version = site.time | date: '%s' %}
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Sean Kane’s notes on his 5-minute chess games.">
   <link rel="canonical" href="{{ '/' | absolute_url }}">
   <link rel="icon" href="{{ '/assets/chess/pieces/wN.svg' | relative_url }}" type="image/svg+xml">
-  <link rel="stylesheet" href="{{ '/assets/chess/journal.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/chess/journal.css' | relative_url }}?v={{ asset_version }}">
   <title>Chess Journal · Sean Kane</title>
 </head>
-<body data-catalog="{{ '/assets/chess/catalog.json' | relative_url }}">
+<body data-catalog="{{ '/assets/chess/catalog.json' | relative_url }}?v={{ asset_version }}">
   <a class="skip-link" href="#review">Skip to review</a>
   <header class="site-header">
     <div class="shell header-inner">
@@ -35,7 +36,7 @@ layout: null
         <p>Notes on my 5-minute games.</p>
       </div>
       <aside class="rating" aria-label="Blitz rating">
-        <div class="goal-title"><span class="target-icon" aria-hidden="true"></span> Blitz rating</div>
+        <div class="goal-title">Blitz rating</div>
         <div class="rating-values">
           <div><small>Current</small><strong>{{ site.data.chess_goal.current }}</strong></div>
           <div><small>Goal</small><strong>{{ site.data.chess_goal.target }}+</strong></div>
@@ -62,7 +63,7 @@ layout: null
       <p class="message" id="catalog-status" role="status">Loading…</p>
 
       <div class="review-grid" id="review-grid" hidden>
-        <figure class="board-card">
+        <figure class="board-figure">
           <div class="player" id="top-player"></div>
           <div class="board-stage">
             <div id="eval-meter" class="eval-meter" role="img">
@@ -85,28 +86,29 @@ layout: null
         </figure>
 
         <div class="review-aside">
-          <section class="engine-card" aria-labelledby="engine-heading">
+          <section class="review-notes" aria-labelledby="note-heading">
+            <div class="note-meta"><span id="note-class" hidden></span><span id="note-move"></span></div>
+            <h3 id="note-heading">Notes</h3>
+            <p id="note-text"></p>
+          </section>
+
+          <section class="move-sheet" aria-labelledby="moves-heading">
+            <div class="move-sheet-heading">
+              <h3 id="moves-heading">Moves</h3>
+              <button type="button" id="return-main" class="line-tag" hidden>Back to game</button>
+              <span id="line-label" class="line-tag">Main line</span>
+            </div>
+            <div class="move-columns" aria-hidden="true"><span>White</span><span>Black</span></div>
+            <div class="move-list" id="move-list" aria-label="Moves"></div>
+            <div class="variations" id="variation-list" hidden></div>
+          </section>
+
+          <section class="evaluation" aria-labelledby="engine-heading">
             <div>
               <h3 id="engine-heading">Evaluation</h3>
               <p id="evaluation-detail"></p>
             </div>
             <strong class="eval-value" id="evaluation-value"></strong>
-          </section>
-
-          <section class="moves-card" aria-labelledby="moves-heading">
-            <div class="card-heading">
-              <h3 id="moves-heading">Moves</h3>
-              <button type="button" id="return-main" class="line-tag" hidden>Back to game</button>
-              <span id="line-label" class="line-tag">Main line</span>
-            </div>
-            <div class="move-list" id="move-list" aria-label="Moves"></div>
-            <div class="variations" id="variation-list" hidden></div>
-          </section>
-
-          <section class="notes-card" aria-labelledby="note-heading">
-            <div class="note-meta"><span id="note-class" hidden></span><span id="note-move"></span></div>
-            <h3 id="note-heading">Notes</h3>
-            <p id="note-text"></p>
           </section>
         </div>
       </div>
@@ -126,6 +128,6 @@ layout: null
       <a href="https://github.com/{{ site.github.username }}">GitHub</a>
     </div>
   </footer>
-  <script type="module" src="{{ '/assets/chess/journal.mjs' | relative_url }}"></script>
+  <script type="module" src="{{ '/assets/chess/journal.mjs' | relative_url }}?v={{ asset_version }}"></script>
 </body>
 </html>
