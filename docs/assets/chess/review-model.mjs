@@ -101,7 +101,7 @@ export function createReview(record) {
     return line;
   }
 
-  const main = addLine(record.moves, root, "Game line", record.id);
+  const main = addLine(record.moves, root, "Main line", record.id);
   const focusPly = record.focusPly ?? 0;
   requireValue(Number.isInteger(focusPly) && focusPly >= 0 && focusPly <= main.positions.length,
     `${record.id}: focusPly is outside the game`);
@@ -121,7 +121,7 @@ export function moveLabel(position) {
 }
 
 export function evaluationDisplay(evaluation) {
-  if (!evaluation) return { label: "—", description: "No saved evaluation for this position", whiteShare: null };
+  if (!evaluation) return { label: "—", description: "No evaluation", whiteShare: null };
   const { cp, mate, winner } = evaluation;
   if (mate !== undefined) {
     const whiteWins = mate === 0 ? winner === "w" : mate > 0;

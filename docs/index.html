@@ -6,23 +6,23 @@ layout: null
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Sean Kane's chess journal, reviewing five-minute games on the way from 650 to 1500+.">
+  <meta name="description" content="Sean Kane’s notes on his 5-minute chess games.">
   <link rel="canonical" href="{{ '/' | absolute_url }}">
   <link rel="icon" href="{{ '/assets/chess/pieces/wN.svg' | relative_url }}" type="image/svg+xml">
   <link rel="stylesheet" href="{{ '/assets/chess/journal.css' | relative_url }}">
-  <title>Road to 1500+ · Sean Kane’s Chess Journal</title>
+  <title>Chess Journal · Sean Kane</title>
 </head>
 <body data-catalog="{{ '/assets/chess/catalog.json' | relative_url }}">
-  <a class="skip-link" href="#review">Skip to game review</a>
+  <a class="skip-link" href="#review">Skip to review</a>
   <header class="site-header">
     <div class="shell header-inner">
       <a class="wordmark" href="{{ '/' | relative_url }}">
         <span class="brand-icon"><img src="{{ '/assets/chess/pieces/wN.svg' | relative_url }}" alt=""></span>
-        <span>Sean Kane<small>Chess journal</small></span>
+        <span>Sean Kane</span>
       </a>
       <nav aria-label="Main navigation">
         <a href="#review">Review</a>
-        <a href="#game-archive">Game archive</a>
+        <a href="#game-archive">Archive</a>
         <a href="{{ '/blog/' | relative_url }}">Blog</a>
       </nav>
     </div>
@@ -31,36 +31,35 @@ layout: null
   <main class="shell">
     <section class="intro" aria-labelledby="journal-title">
       <div class="intro-copy">
-        <p class="eyebrow"><span></span> A BLITZ CHESS JOURNAL</p>
-        <h1 id="journal-title">Road to <em>{{ site.data.chess_goal.target }}+</em></h1>
-        <p>I’m reviewing my five-minute games, looking at where I went wrong and what I could have played instead.</p>
+        <h1 id="journal-title">Chess Journal</h1>
+        <p>Notes on my 5-minute games.</p>
       </div>
-      <aside class="rating" aria-label="Rating goal">
-        <div class="goal-title"><span class="target-icon" aria-hidden="true"></span> Rating goal</div>
+      <aside class="rating" aria-label="Blitz rating">
+        <div class="goal-title"><span class="target-icon" aria-hidden="true"></span> Blitz rating</div>
         <div class="rating-values">
-          <div><small>Current rating</small><strong>{{ site.data.chess_goal.current }}</strong></div>
-          <div><small>Target rating</small><strong>{{ site.data.chess_goal.target }}+</strong></div>
+          <div><small>Current</small><strong>{{ site.data.chess_goal.current }}</strong></div>
+          <div><small>Goal</small><strong>{{ site.data.chess_goal.target }}+</strong></div>
         </div>
         {% assign progress = site.data.chess_goal.current | minus: site.data.chess_goal.start | at_least: 0 | times: 100.0 %}
         {% assign span = site.data.chess_goal.target | minus: site.data.chess_goal.start %}
         <div class="rating-track" role="progressbar" aria-label="Rating progress" aria-valuenow="{{ site.data.chess_goal.current | at_least: site.data.chess_goal.start | at_most: site.data.chess_goal.target }}" aria-valuemin="{{ site.data.chess_goal.start }}" aria-valuemax="{{ site.data.chess_goal.target }}" aria-valuetext="{{ site.data.chess_goal.current }} rating, started at {{ site.data.chess_goal.start }}, target {{ site.data.chess_goal.target }} or higher">
           <span style="width: {{ progress | divided_by: span | at_most: 100 }}%"></span>
         </div>
-        <p>Goal date <time datetime="2027-12-31">December 31, 2027</time></p>
+        <p>By <time datetime="2027-12-31">Dec 31, 2027</time></p>
       </aside>
     </section>
 
     <section id="review" aria-labelledby="review-title">
       <div class="section-top">
         <div>
-          <div class="review-label"><span id="review-kind">Game review</span><span id="game-meta"></span></div>
-          <h2 id="review-title">Game review</h2>
+          <div class="review-label"><span id="review-kind"></span><span id="game-meta"></span></div>
+          <h2 id="review-title">Review</h2>
           <p id="game-summary"></p>
         </div>
         <a class="quiet-link" id="source-game" hidden rel="noopener">Original game</a>
       </div>
-      <noscript><p class="message">Enable JavaScript to step through the game and its variations.</p></noscript>
-      <p class="message" id="catalog-status" role="status">Loading game review…</p>
+      <noscript><p class="message">The board needs JavaScript.</p></noscript>
+      <p class="message" id="catalog-status" role="status">Loading…</p>
 
       <div class="review-grid" id="review-grid" hidden>
         <figure class="board-card">
@@ -88,7 +87,7 @@ layout: null
         <div class="review-aside">
           <section class="engine-card" aria-labelledby="engine-heading">
             <div>
-              <h3 id="engine-heading">Stockfish evaluation</h3>
+              <h3 id="engine-heading">Evaluation</h3>
               <p id="evaluation-detail"></p>
             </div>
             <strong class="eval-value" id="evaluation-value"></strong>
@@ -97,16 +96,16 @@ layout: null
           <section class="moves-card" aria-labelledby="moves-heading">
             <div class="card-heading">
               <h3 id="moves-heading">Moves</h3>
-              <button type="button" id="return-main" class="line-tag" hidden>Return to game</button>
-              <span id="line-label" class="line-tag">Game line</span>
+              <button type="button" id="return-main" class="line-tag" hidden>Back to game</button>
+              <span id="line-label" class="line-tag">Main line</span>
             </div>
             <div class="move-list" id="move-list" aria-label="Moves"></div>
             <div class="variations" id="variation-list" hidden></div>
           </section>
 
           <section class="notes-card" aria-labelledby="note-heading">
-            <div class="note-meta"><span id="note-class"></span><span id="note-move"></span></div>
-            <h3 id="note-heading">Review notes</h3>
+            <div class="note-meta"><span id="note-class" hidden></span><span id="note-move"></span></div>
+            <h3 id="note-heading">Notes</h3>
             <p id="note-text"></p>
           </section>
         </div>
@@ -115,10 +114,7 @@ layout: null
 
     <section class="archive" id="game-archive" aria-labelledby="archive-heading">
       <div class="section-top">
-        <div>
-          <h2 id="archive-heading">Game archive</h2>
-          <p id="archive-summary">Reviewed games and practice examples.</p>
-        </div>
+        <h2 id="archive-heading">Game archive</h2>
       </div>
       <ul id="archive-list" class="archive-list"></ul>
     </section>
@@ -126,11 +122,8 @@ layout: null
 
   <footer class="site-footer">
     <div class="shell footer-inner">
-      <span>Sean Kane · Chess journal</span>
-      <div>
-        <a href="{{ '/blog/' | relative_url }}">Original blog</a>
-        <a href="https://github.com/{{ site.github.username }}">GitHub</a>
-      </div>
+      <span>Sean Kane</span>
+      <a href="https://github.com/{{ site.github.username }}">GitHub</a>
     </div>
   </footer>
   <script type="module" src="{{ '/assets/chess/journal.mjs' | relative_url }}"></script>

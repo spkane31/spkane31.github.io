@@ -58,7 +58,7 @@ async function importPgn(pgnPath, outputFile, perspective) {
   const record = {
     id,
     title: `${white} vs. ${black}`,
-    summary: "Add a short description of what you learned.",
+    summary: "Add a game summary.",
     date: dateFromPgn(header),
     perspective,
     white,

@@ -1,7 +1,7 @@
 {
   "id": "first-threat",
-  "title": "The threat on f7",
-  "summary": "A four-move example of how one natural developing move can miss a direct threat.",
+  "title": "Scholar’s mate",
+  "summary": "Bishop’s Opening. White mates on move four.",
   "example": true,
   "perspective": "b",
   "white": "White",
@@ -44,7 +44,7 @@
     },
     {
       "san": "Qh5",
-      "note": "The queen and bishop both point at f7. The pawn is guarded only by the king, which can’t capture the queen once it lands on a square the bishop protects.",
+      "note": "The queen and bishop both attack f7.",
       "evaluation": {
         "cp": -28,
         "depth": 15,
@@ -54,19 +54,18 @@
     {
       "san": "Nf6",
       "judgment": "Blunder",
-      "title": "Check the threat before developing",
-      "note": "The knight attacks the queen, but White can ignore that and capture on f7 with mate. In blitz, pause after an early queen move and look for checks and captures before making your natural developing move. Try 3…g6 to see how attacking the queen can also cut off its route to f7.",
+      "title": "Mate on f7",
+      "note": "The knight attacks the queen, but 4. Qxf7# ends the game. Before chasing the queen, look at White’s checks.",
       "arrows": [
         "h5f7"
       ],
       "variations": [
         {
-          "title": "Block the queen with 3…g6",
+          "title": "3…g6",
           "moves": [
             {
               "san": "g6",
-              "title": "Attack the queen and block the diagonal",
-              "note": "The pawn on g6 attacks the queen and sits between h5 and f7. White must respond to the pawn instead of taking on f7.",
+              "note": "The pawn attacks the queen and blocks the diagonal to f7.",
               "arrows": [
                 "g6h5"
               ],
@@ -78,7 +77,7 @@
             },
             {
               "san": "Qf3",
-              "note": "White renews the threat on f7, this time from the f-file.",
+              "note": "White threatens f7 again.",
               "evaluation": {
                 "cp": -39,
                 "depth": 15,
@@ -87,7 +86,7 @@
             },
             {
               "san": "Nf6",
-              "note": "Now the knight interrupts the queen’s line to f7 and develops with a purpose.",
+              "note": "This time the knight blocks the queen’s path to f7.",
               "evaluation": {
                 "cp": -30,
                 "depth": 15,
@@ -105,12 +104,11 @@
           ]
         },
         {
-          "title": "Defend f7 with 3…Qe7",
+          "title": "3…Qe7",
           "moves": [
             {
               "san": "Qe7",
-              "title": "Add a defender on f7",
-              "note": "The queen can answer Qxf7+ with Qxf7. The drawback is that Black’s queen now sits in front of the bishop on f8.",
+              "note": "Black’s queen guards f7. It also blocks the f8 bishop.",
               "arrows": [
                 "e7f7"
               ],
@@ -139,8 +137,7 @@
     },
     {
       "san": "Qxf7#",
-      "title": "The bishop makes it mate",
-      "note": "The bishop on c4 protects the queen on f7, so the black king cannot capture it.",
+      "note": "The king can’t take the queen because the c4 bishop covers f7.",
       "evaluation": {
         "mate": 0,
         "winner": "w"

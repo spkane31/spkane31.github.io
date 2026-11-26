@@ -95,7 +95,7 @@ function renderBoard() {
   board.replaceChildren(gridSquares);
   const detail = game.isCheckmate()
     ? `Checkmate. ${sideNames[otherColor(turn)]} wins.`
-    : game.isDraw() ? "Drawn position."
+    : game.isDraw() ? "Draw."
       : finished ? `Game result ${review.record.result}.` : `${sideNames[turn]} to move.`;
   const arrows = (position.arrows ?? []).map((arrow) => `Arrow from ${arrow.slice(0, 2)} to ${arrow.slice(2)}.`);
   board.setAttribute("aria-label", [
@@ -181,7 +181,7 @@ function renderVariations() {
   }
   variations.hidden = options.size === 0;
   const children = [];
-  if (options.size) children.push(element("h4", "", "What could have changed?"));
+  if (options.size) children.push(element("h4", "", "Alternatives"));
   for (const option of options) {
     const button = element("button", "variation-button", option.line.title);
     button.type = "button";
@@ -193,13 +193,11 @@ function renderVariations() {
 
 function renderNote() {
   const judgment = byId("note-class");
-  judgment.textContent = position.judgment || (activeLine === review.main ? "Review note" : "Variation");
-  judgment.toggleAttribute("data-judgment", Boolean(position.judgment));
+  judgment.textContent = position.judgment || "";
+  judgment.hidden = !position.judgment;
   byId("note-move").textContent = moveLabel(position);
-  byId("note-heading").textContent = position.title || (activeLine === review.main ? "Position notes" : activeLine.title);
-  byId("note-text").textContent = position.note || (position.move
-    ? "No written notes for this move."
-    : "Use the move list or board controls to replay the game.");
+  byId("note-heading").textContent = position.title || "Notes";
+  byId("note-text").textContent = position.note || "No notes.";
 }
 
 function show(node, line = node.line ?? review.main, restoreFocus = false) {
@@ -247,14 +245,11 @@ grid.addEventListener("keydown", (event) => {
 });
 
 function renderArchive(records) {
-  if (!records.some((record) => !record.example)) {
-    byId("archive-summary").textContent = "The first personal game review is still to come.";
-  }
   for (const record of records) {
     const link = element("a", "archive-entry");
     link.href = `?game=${encodeURIComponent(record.id)}#review`;
     link.append(
-      element("small", "", [record.example ? "Demo walkthrough" : "Game review", gameMeta(record)].filter(Boolean).join(" · ")),
+      element("small", "", [record.example ? "Example game" : null, gameMeta(record)].filter(Boolean).join(" · ")),
       element("strong", "", record.title),
       element("span", "", record.summary),
     );
@@ -274,7 +269,7 @@ async function openJournal() {
       (b.date ?? "").localeCompare(a.date ?? "") || a.id.localeCompare(b.id));
     renderArchive(records);
     if (!records.length) {
-      status.textContent = "No game reviews have been published yet.";
+      status.textContent = "No games yet.";
       return;
     }
 
@@ -282,7 +277,7 @@ async function openJournal() {
     review = createReview(records.find(({ id }) => id === game) ?? records[0]);
     const { record } = review;
     byId("review-title").textContent = record.title;
-    byId("review-kind").textContent = record.example ? "Demo walkthrough" : "Game review";
+    byId("review-kind").textContent = record.example ? "Example game" : "";
     byId("game-meta").textContent = [gameMeta(record), record.example ? null : record.result].filter(Boolean).join(" · ");
     byId("game-summary").textContent = record.summary;
     if (record.source) {
@@ -298,7 +293,7 @@ async function openJournal() {
     console.error(error);
     grid.hidden = true;
     status.hidden = false;
-    status.textContent = "This review could not load. Refresh the page or choose another game from the archive.";
+    status.textContent = "Couldn’t load the game.";
   }
 }
 
