@@ -1,0 +1,156 @@
+{
+  "id": "first-threat",
+  "title": "The threat on f7",
+  "summary": "A four-move example of how one natural developing move can miss a direct threat.",
+  "example": true,
+  "perspective": "b",
+  "white": "White",
+  "black": "Black",
+  "result": "1-0",
+  "timeControl": "5+0",
+  "focusPly": 6,
+  "moves": [
+    {
+      "san": "e4",
+      "evaluation": {
+        "cp": 27,
+        "depth": 15,
+        "bestMove": "e7e5"
+      }
+    },
+    {
+      "san": "e5",
+      "evaluation": {
+        "cp": 23,
+        "depth": 15,
+        "bestMove": "g1f3"
+      }
+    },
+    {
+      "san": "Bc4",
+      "evaluation": {
+        "cp": 1,
+        "depth": 15,
+        "bestMove": "g8f6"
+      }
+    },
+    {
+      "san": "Nc6",
+      "evaluation": {
+        "cp": 11,
+        "depth": 15,
+        "bestMove": "g1f3"
+      }
+    },
+    {
+      "san": "Qh5",
+      "note": "The queen and bishop both point at f7. The pawn is guarded only by the king, which can’t capture the queen once it lands on a square the bishop protects.",
+      "evaluation": {
+        "cp": -28,
+        "depth": 15,
+        "bestMove": "g7g6"
+      }
+    },
+    {
+      "san": "Nf6",
+      "judgment": "Blunder",
+      "title": "Check the threat before developing",
+      "note": "The knight attacks the queen, but White can ignore that and capture on f7 with mate. In blitz, pause after an early queen move and look for checks and captures before making your natural developing move. Try 3…g6 to see how attacking the queen can also cut off its route to f7.",
+      "arrows": [
+        "h5f7"
+      ],
+      "variations": [
+        {
+          "title": "Block the queen with 3…g6",
+          "moves": [
+            {
+              "san": "g6",
+              "title": "Attack the queen and block the diagonal",
+              "note": "The pawn on g6 attacks the queen and sits between h5 and f7. White must respond to the pawn instead of taking on f7.",
+              "arrows": [
+                "g6h5"
+              ],
+              "evaluation": {
+                "cp": -29,
+                "depth": 15,
+                "bestMove": "h5d1"
+              }
+            },
+            {
+              "san": "Qf3",
+              "note": "White renews the threat on f7, this time from the f-file.",
+              "evaluation": {
+                "cp": -39,
+                "depth": 15,
+                "bestMove": "g8f6"
+              }
+            },
+            {
+              "san": "Nf6",
+              "note": "Now the knight interrupts the queen’s line to f7 and develops with a purpose.",
+              "evaluation": {
+                "cp": -30,
+                "depth": 15,
+                "bestMove": "g1e2"
+              }
+            },
+            {
+              "san": "Ne2",
+              "evaluation": {
+                "cp": -19,
+                "depth": 15,
+                "bestMove": "d7d6"
+              }
+            }
+          ]
+        },
+        {
+          "title": "Defend f7 with 3…Qe7",
+          "moves": [
+            {
+              "san": "Qe7",
+              "title": "Add a defender on f7",
+              "note": "The queen can answer Qxf7+ with Qxf7. The drawback is that Black’s queen now sits in front of the bishop on f8.",
+              "arrows": [
+                "e7f7"
+              ],
+              "evaluation": {
+                "cp": -18,
+                "depth": 15,
+                "bestMove": "g1e2"
+              }
+            },
+            {
+              "san": "Nf3",
+              "evaluation": {
+                "cp": -64,
+                "depth": 15,
+                "bestMove": "g8f6"
+              }
+            }
+          ]
+        }
+      ],
+      "evaluation": {
+        "mate": 1,
+        "depth": 15,
+        "bestMove": "h5f7"
+      }
+    },
+    {
+      "san": "Qxf7#",
+      "title": "The bishop makes it mate",
+      "note": "The bishop on c4 protects the queen on f7, so the black king cannot capture it.",
+      "evaluation": {
+        "mate": 0,
+        "winner": "w"
+      }
+    }
+  ],
+  "engine": "Stockfish 19",
+  "evaluation": {
+    "cp": 32,
+    "depth": 15,
+    "bestMove": "e2e4"
+  }
+}

@@ -18,7 +18,7 @@ description: >-
   Self-study notes and insights from working through machine learning and applied mathematics textbooks and resources.
 
 # Fill in the protocol & hostname for your site.
-url: "https://rsbd.us"
+url: "https://seankane.xyz"
 
 github:
   username: spkane31
@@ -102,13 +102,15 @@ assets:
     enabled:
     env:
 
+# Retire Chirpy’s cache-first worker so repeat visitors receive journal updates.
 pwa:
-  enabled: true
+  enabled: false
   cache:
     enabled: true
     deny_paths:
 
 paginate: 10
+paginate_path: /blog/page:num/
 
 # The base URL of your site
 baseurl: ""

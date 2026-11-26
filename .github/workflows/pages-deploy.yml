@@ -31,6 +31,9 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Validate chess reviews
+        run: node tools/chess-review.mjs check
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
